@@ -80,8 +80,10 @@ class Building {
   void selected(float thisX, float thisY) {
     if (abs(mouseX - thisX) < 3 && abs(mouseY - thisY) < 3) {
       println(avgCosumGallonPerUnit);
-      int sendData = int(map(avgCosumGallonPerUnit, 0, 8000, 100, 10));
-      port.write(sendData);
+      int sendData = int(map(avgCosumGallonPerUnit, 0, 8000, 10, 100));
+      sendData = constrain(sendData, 50, 3000);
+      port.write(str(sendData));
+      port.write('\n');
       pushMatrix();
       translate(thisX, thisY);
       fill(0, 0, 0, 150);

@@ -88,6 +88,8 @@ void setup() {
   
   //port = new Serial(this, Serial.list()[0], 57600);
   port = new Serial(this, "/dev/tty.Smalldownloader-SPPDev", 57600);
+  //port = new Serial(this, "/dev/tty.usbmodem1411", 57600);
+  
 }
 
 void draw() {
